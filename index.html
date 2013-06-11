@@ -36,22 +36,28 @@
 <h3>
 <a name="cdtw-vs-gem-dendrograms" class="anchor" href="#cdtw-vs-gem-dendrograms"><span class="octicon octicon-link"></span></a>cDTW vs. GEM dendrograms</h3>
 
-<p>This sections provides additional dendrograms obtained on the left split (indices 100-499) of the metal data set. We only state three examples of different types for brevity. All misclassifications of cDTW on this split can be found <a href="https://github.com/gempaper/gem/tree/master/results/dendrograms">here</a> in pdf of png format. For a given index the upper dendrogram shows the complete linkage clustering for constrained DTW (with learned parameters) and the lower one the same for the GEM similarity measure (with learned parameters). The images are rendered with <a href="">DendrogramMetal.py</a> -- feel free to edit this file to obtain dendrograms with single or average linkage.</p>
+<p>This sections provides additional dendrograms obtained on the left split (indices 100-499) of the metal data set. We only state three examples of different types for brevity. All misclassifications of cDTW on this split can be found <a href="https://github.com/gempaper/gem/tree/master/results/dendrograms">here</a> in pdf or png format. For a given index the upper dendrogram shows the complete linkage clustering for constrained DTW (with learned parameters) and the lower one the same for the GEM similarity measure (with learned parameters). The images are rendered with <a href="">DendrogramMetal.py</a> -- feel free to edit this file to obtain dendrograms with single or average linkage.</p>
 
 <h5>
-<a name="index-130" class="anchor" href="#index-130"><span class="octicon octicon-link"></span></a>Index 130</h5>
+<a name="index-171-local-trendsdeformation" class="anchor" href="#index-171-local-trendsdeformation"><span class="octicon octicon-link"></span></a>Index 171 (local trends/deformation)</h5>
 
-<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_130.png?raw=true" alt="130"></p>
+<p>Obviously, the corresponding child (C) and parent (P) metal strips share a lot of features but differ in a wandering baseline. This artifact is caused by deformation of the fabricated material. The best match (L) under the cDTW distance measure (with learned parameters) accidentally has the same local mean. However, GEM's invariance under local trends makes it possible to select the correct correspondence.</p>
 
-<h5>
-<a name="index-147" class="anchor" href="#index-147"><span class="octicon octicon-link"></span></a>Index 147</h5>
-
-<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_147.png?raw=true" alt="147"></p>
+<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_171.png?raw=true" alt="171"></p>
 
 <h5>
-<a name="index-152" class="anchor" href="#index-152"><span class="octicon octicon-link"></span></a>Index 152</h5>
+<a name="index-194-extraction-failureunknown-scale" class="anchor" href="#index-194-extraction-failureunknown-scale"><span class="octicon octicon-link"></span></a>Index 194 (extraction failure/unknown scale)</h5>
 
-<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_152.png?raw=true" alt="152"></p>
+<p>Although all time series have been scaled to the same length to synchronize the sampling rate of both sensors it may happen, that the extraction of the signal from the data stream is imprecise. A close look at the dendrogram reveals that a slightly downscaled version of P fits a substantial region of C. GEM features scale and translation invariant subsequence matching in the time domain which enables us to find the correct mapping.</p>
+
+<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_194.png?raw=true" alt="194"></p>
+
+<h5>
+<a name="index-255-occlusionsensor-failure" class="anchor" href="#index-255-occlusionsensor-failure"><span class="octicon octicon-link"></span></a>Index 255 (occlusion/sensor failure)</h5>
+
+<p>This example demonstrates how z-normalization can be harmful when sensor failure occurs. The amplitudes of the distorted time series (P) are significantly altered. GEM avoids this artifact since it does not use z-normalization and allows skips in the query or subject sequence.</p>
+
+<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_255.png?raw=true" alt="255"></p>
 
 <h3>
 <a name="ucr-database-resampled-1nn" class="anchor" href="#ucr-database-resampled-1nn"><span class="octicon octicon-link"></span></a>UCR database resampled 1NN</h3>
