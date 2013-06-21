@@ -1,6 +1,8 @@
 GEM supplementary website
 ===
 
+Please, have a look at the corresponding [website.](http://gempaper.github.io/gem/)
+
 Feel free to browse the repository:
 
 - data ... metal dataset and UCR repository skeleton 
