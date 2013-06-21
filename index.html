@@ -16,7 +16,7 @@
     <div class="wrapper">
       <header>
         <h1>Gem</h1>
-        <p>Finding Locally Deformed and Scaled Time Series</p>
+        <p>An Elastic, Local Similarity Measure with Automatic Trend Adjustment</p>
 
         <p class="view"><a href="https://github.com/gempaper/gem">View the Project on GitHub <small>gempaper/gem</small></a></p>
 
@@ -31,7 +31,7 @@
         <h3>
 <a name="welcome-to-the-supplementary-webpage-for-the-gem-paper" class="anchor" href="#welcome-to-the-supplementary-webpage-for-the-gem-paper"><span class="octicon octicon-link"></span></a>Welcome to the supplementary webpage for the GEM paper</h3>
 
-<p>This page is intended to give additional information and material including all data sets and source code. </p>
+<p>This page is intended to give additional information and material including all data sets and source code. You can download all supplementary material in a single zip file (see left) or browse the repository at <a href="https://github.com/gempaper/gem">github.</a></p>
 
 <h3>
 <a name="cdtw-vs-gem-dendrograms-and-the-metal-dataset" class="anchor" href="#cdtw-vs-gem-dendrograms-and-the-metal-dataset"><span class="octicon octicon-link"></span></a>cDTW vs. GEM dendrograms and the Metal dataset</h3>
@@ -58,6 +58,21 @@
 <p>This example demonstrates how z-normalization can be harmful when sensor failure occurs. The amplitudes of the distorted time series (P) are significantly altered. GEM avoids this artifact since it does not use z-normalization and allows skips in the query or subject sequence.</p>
 
 <p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_255.png?raw=true" alt="255"></p>
+
+<h3>
+<a name="metal-and-fish-resampled-1nn" class="anchor" href="#metal-and-fish-resampled-1nn"><span class="octicon octicon-link"></span></a>Metal and Fish resampled 1NN</h3>
+
+<p>Detailed information about all tested distance measures (GEM, (c)DTW, ED) the used splits and learned parameters can be found in the <a href="https://github.com/gempaper/gem/tree/master/results/finalresults">result folder (dn_M* and dn_39*).</a> The histograms can be generated with <a href="https://github.com/gempaper/gem/blob/master/ResultsMetall.py">ResultsMetall.py</a> and <a href="https://github.com/gempaper/gem/blob/master/ResultsFish.py">ResultsFish.py</a>.</p>
+
+<h5>
+<a name="metal-relative-error-rates" class="anchor" href="#metal-relative-error-rates"><span class="octicon octicon-link"></span></a>Metal relative error rates</h5>
+
+<p><img src="https://raw.github.com/gempaper/gem/master/results/metall/Metalvs.png" alt="metallhist"></p>
+
+<h5>
+<a name="fish-relative-error-rates" class="anchor" href="#fish-relative-error-rates"><span class="octicon octicon-link"></span></a>Fish relative error rates</h5>
+
+<p><img src="https://raw.github.com/gempaper/gem/master/results/fish/Fishvs.png" alt="fishhist"></p>
 
 <h3>
 <a name="ucr-database-resampled-1nn" class="anchor" href="#ucr-database-resampled-1nn"><span class="octicon octicon-link"></span></a>UCR database resampled 1NN</h3>
@@ -357,14 +372,14 @@
 <h5>
 <a name="prediction-power-texas-sharpshooter-plot" class="anchor" href="#prediction-power-texas-sharpshooter-plot"><span class="octicon octicon-link"></span></a>Prediction power (Texas sharpshooter plot)</h5>
 
-<p>The averaged differences of relative error rates and standard deviations (error bars) for constrained DTW and GEM for both training and test set on the individual datasets of the UCR repository are shown below.</p>
+<p>The averaged differences of relative error rates and standard deviations (error bars) for constrained DTW and GEM (for both training and test set) on the individual datasets of the UCR repository are shown below.</p>
 
 <p><img src="https://raw.github.com/gempaper/gem/master/results/ucrdistances/UCRSharpShooter.png" alt="sharpshooter"></p>
 
 <h3>
 <a name="speedup-measurements" class="anchor" href="#speedup-measurements"><span class="octicon octicon-link"></span></a>Speedup Measurements</h3>
 
-<p>The makefile for the UCR Suite including the used compiler flags can be found<a href="https://github.com/gempaper/gem/blob/master/ucrsuite/Makefile">ucrsuite</a>. The queries and subject of the ECG dataset can be found on the <a href="http://www.cs.ucr.edu/%7Eeamonn/UCRsuite.html">supplementary website of the UCR Suite.</a>. The queries and subject for the metal dataset can be generated with the given <a href="https://github.com/gempaper/gem/blob/master/QueryAndSubjectGeneratorMetall.py">Python script.</a></p>
+<p>The makefile for the UCR Suite including the used compiler flags can be found <a href="https://github.com/gempaper/gem/blob/master/ucrsuite/Makefile">here.</a> The queries and subject of the ECG dataset are provided at the <a href="http://www.cs.ucr.edu/%7Eeamonn/UCRsuite.html">supplementary website of the UCR Suite.</a>. The queries and subject for the metal dataset can be generated with the given <a href="https://github.com/gempaper/gem/blob/master/QueryAndSubjectGeneratorMetall.py">Python script.</a></p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/gempaper">gempaper</a></p>
