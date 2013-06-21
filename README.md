@@ -8,4 +8,5 @@ Feel free to browse the repository:
 - pydtw ............. Python bindings for (un)constrained DTW 
 - pygem ............. Python bindings for GEM and CUDA-GEM 
 - results ........... detailed results including graphics 
+- ucrsuite .......... makefile for the UCR Suite
 
