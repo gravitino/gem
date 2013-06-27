@@ -15,7 +15,7 @@ def read(set_number, dirname="./data/ucr"):
     path = "%s/%s" % (dirname, data_sets[set_number])
 
     # get test file and train file name    
-    test_file, train_file = list(sorted(list(os.walk(path))[0][2]))
+    empty, test_file, train_file = list(sorted(list(os.walk(path))[0][2]))
 
     print "test: ", test_file, "\ttrain: ", train_file
 
