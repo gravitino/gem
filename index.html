@@ -65,14 +65,29 @@
 <p>Detailed information about all tested distance measures (GEM, (c)DTW, ED) the used splits and learned parameters can be found in the <a href="https://github.com/gempaper/gem/tree/master/results/finalresults">result folder</a> (dn_M* and dn_39*). The histograms can be generated with <a href="https://github.com/gempaper/gem/blob/master/ResultsMetall.py">ResultsMetall.py</a> and <a href="https://github.com/gempaper/gem/blob/master/ResultsFish.py">ResultsFish.py</a>.</p>
 
 <h5>
-<a name="metal-relative-error-rates" class="anchor" href="#metal-relative-error-rates"><span class="octicon octicon-link"></span></a>Metal relative error rates</h5>
+<a name="metal-protocol-and-relative-error-rates" class="anchor" href="#metal-protocol-and-relative-error-rates"><span class="octicon octicon-link"></span></a>Metal Protocol and Relative Error Rates</h5>
+
+<p>The metal dataset consists of 1000 pairs of thickness profile measurements of metal coils. Given a thickness measurement child^i we assign the corresponding time series parent^i for all i in {0,..., 999}. As a result, the dataset consists of 1000 classes with two members each. Since GEM and cDTW both depend on external parameters, we have to carry out parameter learning. Unfortunately, every stratified split of the dataset into a training and test set creates classes with exactly one member which renders parameter learning infeasible. Therefore, we separate a small subset for parameter learning beforehand and determine the error rates on the complementary set to avoid leakage. For our experiments we use the following protocol:</p>
+
+<ul>
+<li>(i) Shuffle the index set I:={0,...,999} with a random permutation pi to obtain pi(I):={pi(0),...,pi(999)}.</li>
+<li>(ii) Split pi(I) into four disjoint index subsets -- two pairs of parameter learning and holdout  sets: (L_left, H_left) as well as (L_right, H_right) with |L_j| = 100 and |H_j| = 400 each.</li>
+<li>(iii) For each of the two pairs (L_j, H_j) do the following: Learn the parameters of the given distance measure on the indices L_j by picking the parameter that yields minimum classification error of a 1NN-classifier built with the parents.  After picking the most promising parameter determine the 1NN-classification error on the complementary index set H_j in the same manner. Finally, one yields one error for each H_j. Go to (i) until finished.<br>
+</li>
+</ul><p>The partition of the dataset is motivated by the following criteria: Parameters are learned on a small subset since this is the desired real-world setting. The parameter for cDTW is given by the relative window size of the Sakoe-Chiba Band and ranges from 0% to 20%. GEM's scaling parameters s_-, s_+ in S and the averaging coefficient alpha_1 in A are taken from the sets S={1,2} and A={2^{-p} |  p in {1,...,8} }. Shuffling the indices during step (i) ensures variability of parameter learning scenarios. Additionally, the dataset is split into two pairs (L_j, H_j) to guarantee the same variability for the final error rate since H_j is substantially altered each run. Otherwise, we would end up with nearly identical holdout sets if we provided only one pair (L, H) for each iteration.</p>
 
 <p><img src="https://raw.github.com/gempaper/gem/master/results/metall/Metalvs.png" alt="metallhist"></p>
 
 <h5>
-<a name="fish-relative-error-rates" class="anchor" href="#fish-relative-error-rates"><span class="octicon octicon-link"></span></a>Fish relative error rates</h5>
+<a name="fishucr-protocol-and-relative-error-rates" class="anchor" href="#fishucr-protocol-and-relative-error-rates"><span class="octicon octicon-link"></span></a>Fish/UCR Protocol and Relative Error Rates</h5>
 
-<p><img src="https://raw.github.com/gempaper/gem/master/results/fish/Fishvs.png" alt="fishhist"></p>
+<p>The error rates for the members of the UCR repository are determined by the given protocol: Again, we consider a resampling strategy for our experiments to provide means and standard deviations. The fish dataset has been included into the UCR database and therefore a canonical split into a training and test set is provided. For further resampling we use the following protocol:</p>
+
+<ul>
+<li>(i) For the first iteration take the UCR split, otherwise accomplish a stratified random split of the dataset into a training and test set conserving the split and class ratios.</li>
+<li>(ii) Learn the parameters of the distance measures with Leave-One-Out-Cross-Validation (LOOCV) on the training set. Pick the parameter that minimizes the error rate.</li>
+<li>(iii) Build a 1NN-classifier with the training set and the optimal parameter. Determine the final error rate on the test set with this classifier. Return to (i) until finished.</li>
+</ul><p><img src="https://raw.github.com/gempaper/gem/master/results/fish/Fishvs.png" alt="fishhist"></p>
 
 <h3>
 <a name="ucr-database-resampled-1nn" class="anchor" href="#ucr-database-resampled-1nn"><span class="octicon octicon-link"></span></a>UCR database resampled 1NN</h3>
@@ -80,12 +95,13 @@
 <p>The detailed classification rates for all  tested distance measures (GEM, (c)DTW, ED) can be found <a href="https://raw.github.com/gempaper/gem/master/results/ucrdistances/results">here</a>. This table can be generated with the given <a href="https://github.com/gempaper/gem/blob/master/ResultsUCR.py">Python script</a>. For even more details like the individual splits each iteration  please have a look at the <a href="https://github.com/gempaper/gem/tree/master/results/finalresults">results folder.</a></p>
 
 <table>
-<tr>
+<thead><tr>
 <th align="right">#</th>
 <th align="left">dataset</th>
 <th>E_cdtw +/- Sigma</th>
 <th>E_gem +/- Sigma</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td align="right">0</td>
 <td align="left">50words</td>
@@ -362,6 +378,7 @@
 <td>0.1465 +/- 0.0114</td>
 <td>0.1463 +/- 0.0156</td>
 </tr>
+</tbody>
 </table><h5>
 <a name="visualized-classification-error" class="anchor" href="#visualized-classification-error"><span class="octicon octicon-link"></span></a>Visualized classification error</h5>
 
