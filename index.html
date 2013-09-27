@@ -397,6 +397,10 @@
 <a name="speedup-measurements" class="anchor" href="#speedup-measurements"><span class="octicon octicon-link"></span></a>Speedup Measurements</h3>
 
 <p>The makefile for the UCR Suite including the used compiler flags can be found <a href="https://github.com/gempaper/gem/blob/master/ucrsuite/Makefile">here.</a> The queries and subject of the ECG dataset are provided at the <a href="http://www.cs.ucr.edu/%7Eeamonn/UCRsuite.html">supplementary website of the UCR Suite.</a> The queries and subject for the metal dataset can be generated with the given <a href="https://github.com/gempaper/gem/blob/master/QueryAndSubjectGeneratorMetall.py">Python script.</a></p>
+
+<p>The results for the ECG dataset are illustrated in the following figure:
+<img src="https://raw.github.com/gempaper/gem/master/results/ecg/gem-speedup-ecg.png" alt="ecgspeedup">
+Figure: Performance in terms of execution time for the ECG dataset for the sequential (1 thread), OpenMP (12 threads), CUDA implementation of GEM in comparison to UCR-DTW with three different window settings (0.05, 0.1, 0.2). The x-axis represents the size of Q. S is fixed at size 20.1 million. The y-axis represents the execution time (in seconds), both using logarithmic scale.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/gempaper">gempaper</a></p>
