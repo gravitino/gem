@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Gem by gempaper</title>
+    <title>Gem by gravitino</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -18,51 +18,51 @@
         <h1>Gem</h1>
         <p>An Elastic, Local Similarity Measure with Automatic Trend Adjustment</p>
 
-        <p class="view"><a href="https://github.com/gempaper/gem">View the Project on GitHub <small>gempaper/gem</small></a></p>
+        <p class="view"><a href="https://github.com/gravitino/gem">View the Project on GitHub <small>gravitino/gem</small></a></p>
 
 
         <ul>
-          <li><a href="https://github.com/gempaper/gem/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/gempaper/gem/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/gempaper/gem">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/gravitino/gem/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/gravitino/gem/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/gravitino/gem">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h3>
 <a name="welcome-to-the-supplementary-webpage-for-the-gem-paper" class="anchor" href="#welcome-to-the-supplementary-webpage-for-the-gem-paper"><span class="octicon octicon-link"></span></a>Welcome to the supplementary webpage for the GEM paper</h3>
 
-<p>This page is intended to give additional information and material including all data sets and source code. You can download all supplementary material in a single zip file (see left) or browse the repository at <a href="https://github.com/gempaper/gem">github.</a></p>
+<p>This page is intended to give additional information and material including all data sets and source code. You can download all supplementary material in a single zip file (see left) or browse the repository at <a href="https://github.com/gravitino/gem">github.</a></p>
 
 <h3>
 <a name="cdtw-vs-gem-dendrograms-and-the-metal-dataset" class="anchor" href="#cdtw-vs-gem-dendrograms-and-the-metal-dataset"><span class="octicon octicon-link"></span></a>cDTW vs. GEM dendrograms and the Metal dataset</h3>
 
-<p>This sections provides additional dendrograms obtained on the left split (indices 100-499) of the <a href="https://github.com/gempaper/gem/tree/master/data/metal">metal dataset.</a> We only state three examples of different types for brevity. All misclassifications of cDTW on this split can be found <a href="https://github.com/gempaper/gem/tree/master/results/dendrograms">here</a> in pdf or png format. For a given index the upper dendrogram shows the complete linkage clustering for constrained DTW (with learned parameters) and the lower one the same for the GEM similarity measure (with learned parameters). The images are rendered with <a href="https://github.com/gempaper/gem/blob/master/DendrogramMetall.py">DendrogramMetal.py</a> -- feel free to edit this file to obtain dendrograms with single or average linkage.</p>
+<p>This sections provides additional dendrograms obtained on the left split (indices 100-499) of the <a href="https://github.com/gravitino/gem/tree/master/data/metal">metal dataset.</a> We only state three examples of different types for brevity. All misclassifications of cDTW on this split can be found <a href="https://github.com/gravitino/gem/tree/master/results/dendrograms">here</a> in pdf or png format. For a given index the upper dendrogram shows the complete linkage clustering for constrained DTW (with learned parameters) and the lower one the same for the GEM similarity measure (with learned parameters). The images are rendered with <a href="https://github.com/gravitino/gem/blob/master/DendrogramMetall.py">DendrogramMetal.py</a> -- feel free to edit this file to obtain dendrograms with single or average linkage.</p>
 
 <h5>
 <a name="index-171-local-trendsdeformation" class="anchor" href="#index-171-local-trendsdeformation"><span class="octicon octicon-link"></span></a>Index 171 (local trends/deformation)</h5>
 
 <p>Obviously, the corresponding child (C) and parent (P) metal strips share a lot of features but differ in a wandering baseline. This artifact is caused by deformation of the fabricated material. The best match (L) under the cDTW distance measure (with learned parameters) accidentally has the same local mean. However, GEM's invariance under local trends makes it possible to select the correct correspondence.</p>
 
-<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_171.png?raw=true" alt="171"></p>
+<p><img src="https://github.com/gravitino/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_171.png?raw=true" alt="171"></p>
 
 <h5>
 <a name="index-194-extraction-failureunknown-scale" class="anchor" href="#index-194-extraction-failureunknown-scale"><span class="octicon octicon-link"></span></a>Index 194 (extraction failure/unknown scale)</h5>
 
 <p>Although all time series have been scaled to the same length to synchronize the sampling rate of both sensors it may happen, that the extraction of the signal from the data stream is imprecise. A close look at the dendrogram reveals that a slightly downscaled version of P fits a substantial region of C. GEM features scale and translation invariant subsequence matching in the time domain which enables us to find the correct mapping.</p>
 
-<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_194.png?raw=true" alt="194"></p>
+<p><img src="https://github.com/gravitino/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_194.png?raw=true" alt="194"></p>
 
 <h5>
 <a name="index-255-occlusionsensor-failure" class="anchor" href="#index-255-occlusionsensor-failure"><span class="octicon octicon-link"></span></a>Index 255 (occlusion/sensor failure)</h5>
 
 <p>This example demonstrates how z-normalization can be harmful when sensor failure occurs. The amplitudes of the distorted time series (P) are significantly altered. GEM avoids this artifact since it does not use z-normalization and allows skips in the query or subject sequence.</p>
 
-<p><img src="https://github.com/gempaper/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_255.png?raw=true" alt="255"></p>
+<p><img src="https://github.com/gravitino/gem/blob/master/results/dendrograms/dendrogram_cdtw_vs_gem_255.png?raw=true" alt="255"></p>
 
 <h3>
 <a name="metal-and-fish-resampled-1nn" class="anchor" href="#metal-and-fish-resampled-1nn"><span class="octicon octicon-link"></span></a>Metal and Fish resampled 1NN</h3>
 
-<p>Detailed information about all tested distance measures (GEM, (c)DTW, ED) the used splits and learned parameters can be found in the <a href="https://github.com/gempaper/gem/tree/master/results/finalresults">result folder</a> (dn_M* and dn_39*). The histograms can be generated with <a href="https://github.com/gempaper/gem/blob/master/ResultsMetall.py">ResultsMetall.py</a> and <a href="https://github.com/gempaper/gem/blob/master/ResultsFish.py">ResultsFish.py</a>.</p>
+<p>Detailed information about all tested distance measures (GEM, (c)DTW, ED) the used splits and learned parameters can be found in the <a href="https://github.com/gravitino/gem/tree/master/results/finalresults">result folder</a> (dn_M* and dn_39*). The histograms can be generated with <a href="https://github.com/gravitino/gem/blob/master/ResultsMetall.py">ResultsMetall.py</a> and <a href="https://github.com/gravitino/gem/blob/master/ResultsFish.py">ResultsFish.py</a>.</p>
 
 <h5>
 <a name="metal-protocol-and-relative-error-rates" class="anchor" href="#metal-protocol-and-relative-error-rates"><span class="octicon octicon-link"></span></a>Metal Protocol and Relative Error Rates</h5>
@@ -76,7 +76,7 @@
 </li>
 </ul><p>The partition of the dataset is motivated by the following criteria: Parameters are learned on a small subset since this is the desired real-world setting. The parameter for cDTW is given by the relative window size of the Sakoe-Chiba Band and ranges from 0% to 20%. GEM's scaling parameters s_-, s_+ in S and the averaging coefficient alpha_1 in A are taken from the sets S={1,2} and A={2^{-p} |  p in {1,...,8} }. Shuffling the indices during step (i) ensures variability of parameter learning scenarios. Additionally, the dataset is split into two pairs (L_j, H_j) to guarantee the same variability for the final error rate since H_j is substantially altered each run. Otherwise, we would end up with nearly identical holdout sets if we provided only one pair (L, H) for each iteration.</p>
 
-<p><img src="https://raw.github.com/gempaper/gem/master/results/metall/Metalvs.png" alt="metallhist"></p>
+<p><img src="https://raw.github.com/gravitino/gem/master/results/metall/Metalvs.png" alt="metallhist"></p>
 
 <h5>
 <a name="fishucr-protocol-and-relative-error-rates" class="anchor" href="#fishucr-protocol-and-relative-error-rates"><span class="octicon octicon-link"></span></a>Fish/UCR Protocol and Relative Error Rates</h5>
@@ -87,12 +87,12 @@
 <li>(i) For the first iteration take the UCR split, otherwise accomplish a stratified random split of the dataset into a training and test set conserving the split and class ratios.</li>
 <li>(ii) Learn the parameters of the distance measures with Leave-One-Out-Cross-Validation (LOOCV) on the training set. Pick the parameter that minimizes the error rate.</li>
 <li>(iii) Build a 1NN-classifier with the training set and the optimal parameter. Determine the final error rate on the test set with this classifier. Return to (i) until finished.</li>
-</ul><p><img src="https://raw.github.com/gempaper/gem/master/results/fish/Fishvs.png" alt="fishhist"></p>
+</ul><p><img src="https://raw.github.com/gravitino/gem/master/results/fish/Fishvs.png" alt="fishhist"></p>
 
 <h3>
 <a name="ucr-database-resampled-1nn" class="anchor" href="#ucr-database-resampled-1nn"><span class="octicon octicon-link"></span></a>UCR database resampled 1NN</h3>
 
-<p>The detailed classification rates for all  tested distance measures (GEM, (c)DTW, ED) can be found <a href="https://raw.github.com/gempaper/gem/master/results/ucrdistances/results">here</a>. This table can be generated with the given <a href="https://github.com/gempaper/gem/blob/master/ResultsUCR.py">Python script</a>. For even more details like the individual splits each iteration  please have a look at the <a href="https://github.com/gempaper/gem/tree/master/results/finalresults">results folder.</a></p>
+<p>The detailed classification rates for all  tested distance measures (GEM, (c)DTW, ED) can be found <a href="https://raw.github.com/gravitino/gem/master/results/ucrdistances/results">here</a>. This table can be generated with the given <a href="https://github.com/gravitino/gem/blob/master/ResultsUCR.py">Python script</a>. For even more details like the individual splits each iteration  please have a look at the <a href="https://github.com/gravitino/gem/tree/master/results/finalresults">results folder.</a></p>
 
 <table>
 <thead><tr>
@@ -384,26 +384,26 @@
 
 <p>The averaged error rates and standard deviations (error bars) for constrained DTW and GEM on the individual datasets of the UCR repository are shown below. </p>
 
-<p><img src="https://raw.github.com/gempaper/gem/master/results/ucrdistances/UCRResults.png" alt="ucrresults "></p>
+<p><img src="https://raw.github.com/gravitino/gem/master/results/ucrdistances/UCRResults.png" alt="ucrresults "></p>
 
 <h5>
 <a name="prediction-power-texas-sharpshooter-plot" class="anchor" href="#prediction-power-texas-sharpshooter-plot"><span class="octicon octicon-link"></span></a>Prediction power (Texas sharpshooter plot)</h5>
 
 <p>The averaged differences of relative error rates and standard deviations (error bars) for constrained DTW and GEM (for both training and test set) on the individual datasets of the UCR repository are shown below.</p>
 
-<p><img src="https://raw.github.com/gempaper/gem/master/results/ucrdistances/UCRSharpShooter.png" alt="sharpshooter"></p>
+<p><img src="https://raw.github.com/gravitino/gem/master/results/ucrdistances/UCRSharpShooter.png" alt="sharpshooter"></p>
 
 <h3>
 <a name="speedup-measurements" class="anchor" href="#speedup-measurements"><span class="octicon octicon-link"></span></a>Speedup Measurements</h3>
 
-<p>The makefile for the UCR Suite including the used compiler flags can be found <a href="https://github.com/gempaper/gem/blob/master/ucrsuite/Makefile">here.</a> The queries and subject of the ECG dataset are provided at the <a href="http://www.cs.ucr.edu/%7Eeamonn/UCRsuite.html">supplementary website of the UCR Suite.</a> The queries and subject for the metal dataset can be generated with the given <a href="https://github.com/gempaper/gem/blob/master/QueryAndSubjectGeneratorMetall.py">Python script.</a></p>
+<p>The makefile for the UCR Suite including the used compiler flags can be found <a href="https://github.com/gravitino/gem/blob/master/ucrsuite/Makefile">here.</a> The queries and subject of the ECG dataset are provided at the <a href="http://www.cs.ucr.edu/%7Eeamonn/UCRsuite.html">supplementary website of the UCR Suite.</a> The queries and subject for the metal dataset can be generated with the given <a href="https://github.com/gravitino/gem/blob/master/QueryAndSubjectGeneratorMetall.py">Python script.</a></p>
 
 <p>The results for the ECG dataset are illustrated in the following figure:
-<img src="https://raw.github.com/gempaper/gem/master/results/ecg/gem-speedup-ecg.png" alt="ecgspeedup">
+<img src="https://raw.github.com/gravitino/gem/master/results/ecg/gem-speedup-ecg.png" alt="ecgspeedup">
 Figure: Performance in terms of execution time for the ECG dataset for the sequential (1 thread), OpenMP (12 threads), CUDA implementation of GEM in comparison to UCR-DTW with three different window settings (0.05, 0.1, 0.2). The x-axis represents the size of Q. S is fixed at size 20.1 million. The y-axis represents the execution time (in seconds), both using logarithmic scale.</p>
       </section>
       <footer>
-        <p>This project is maintained by <a href="https://github.com/gempaper">gempaper</a></p>
+        <p>This project is maintained by <a href="https://github.com/gravitino">gravitino</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
