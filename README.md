@@ -1,7 +1,7 @@
 GEM supplementary website
 ===
 
-Please, have a look at the corresponding [website.](http://gempaper.github.io/gem/)
+Please, have a look at the corresponding [website.](http://gravitino.github.io/gem/)
 
 Feel free to browse the repository:
 
